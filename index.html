@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>لوحة تحفيز فيزياء ٣-٢ للصف الثالث ثانوي شعبة ١</title>
+
+  <style>
+    :root{
+      --bg1:#fff7fb;
+      --bg2:#f3fff7;
+      --text:#111827;
+      --muted:#6b7280;
+
+      --shadow:0 10px 25px rgba(0,0,0,.08);
+      --radius:18px;
+
+      --star-off:#e5e7eb;
+      --star-on:#fbbf24;
+
+      --ring:#8fe0a5;
+
+      --gold:#fbbf24;
+      --silver:#cbd5e1;
+      --bronze:#d6a25a;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, var(--bg2), transparent),
+        radial-gradient(1000px 600px at 90% 20%, var(--bg1), transparent),
+        #fff;
+      color:var(--text);
+    }
+
+    .wrap{
+      max-width:1180px;
+      margin:22px auto;
+      padding:0 14px 26px;
+    }
+
+    .header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      padding:14px 16px;
+      background:linear-gradient(135deg, rgba(34,197,94,.18), rgba(168,85,247,.14), rgba(249,115,22,.14));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      gap:14px;
+    }
+
+    .titleBlock{ display:flex; flex-direction:column; gap:8px; flex:1; }
+    .titleRow{ font-weight:1000; font-size:22px; }
+
+    .badge{
+      font-size:13px;
+      background:#fff;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px dashed #ccc;
+      font-weight:900;
+      width:fit-content;
+    }
+
+    .schoolBlock{
+      background:rgba(255,255,255,.65);
+      border-radius:14px;
+      padding:10px 12px;
+      box-shadow:0 6px 14px rgba(0,0,0,.06);
+    }
+
+    .toolbar{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:12px 0;
+      align-items:center;
+    }
+
+    .search{
+      flex:1;
+      background:#fff;
+      border-radius:999px;
+      padding:10px 12px;
+      box-shadow:0 6px 14px rgba(0,0,0,.06);
+      border:1px solid #ddd;
+    }
+
+    .search input{ border:0; outline:0; width:100%; }
+
+    .legend{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      background:#fff;
+      border-radius:999px;
+      padding:8px 12px;
+      font-weight:900;
+      font-size:12px;
+      box-shadow:0 6px 14px rgba(0,0,0,.05);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+
+    @media(max-width:640px){
+      .grid{ grid-template-columns:repeat(2,1fr); }
+    }
+
+    .card{
+      background:#fff;
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:14px;
+      position:relative;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .rankBadge{
+      position:absolute;
+      top:10px;
+      right:10px;
+      background:#fff;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:1000;
+    }
+
+    .rightInfo{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-left:auto;
+    }
+
+    .avatarWrap{
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      border:4px solid var(--ring);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#f9fafb;
+    }
+
+    .avatarWrap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.1);
+    }
+
+    .letter{ font-size:26px; font-weight:1000; }
+
+    .info{ text-align:right; }
+    .name{ font-weight:1000; font-size:18px; }
+    .avg{ font-size:13px; font-weight:900; color:#7c2d12; }
+
+    .leftRates{
+      width:100%;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin-top:6px;
+    }
+
+    .row{ display:flex; gap:8px; align-items:center; }
+    .emoji{ width:22px; text-align:center; }
+    .star{ color:#e5e7eb; }
+    .star.filled{ color:#fbbf24; }
+
+    .footer{
+      margin-top:18px;
+      text-align:center;
+      font-size:12px;
+      font-weight:900;
+      color:#6b7280;
+      padding:12px;
+      background:#fff;
+      border-radius:14px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="titleBlock">
+      <div class="titleRow">🌟 لوحة تحفيز فيزياء ٣-٢ للصف الثالث ثانوي شعبة ١</div>
+      <div class="badge" id="count">جاري التحميل…</div>
+    </div>
+
+    <div class="schoolBlock">
+      🏫 الثانوية الأولى في بيشة<br>
+      👩‍🏫 معلمة المادة / نوف خبتي
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="search">
+      🔎 <input id="search" placeholder="ابحثي باسم الطالبة">
+    </div>
+
+    <div class="legend">
+      🤝 التعاون · 👩‍🎓 المشاركة · 👀 التركيز · 🎯 الالتزام · 🧠 السلوك
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="footer">صُممت بحُب 🤍 — نوف خبتي</div>
+</div>
+
+<script>
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSVaV6EtftdtCrJ4I5lVyAe1NQe6eSELgIIYF54EKXTv7dTz_FL2XeDvzuxCiLvM0obHDI-bkSOm6ft/pub?output=csv";
+
+const grid = document.getElementById("grid");
+const count = document.getElementById("count");
+const search = document.getElementById("search");
+let rows = [];
+
+function clamp(n){ n=Number(n); return isNaN(n)?0:Math.max(0,Math.min(5,n)); }
+
+function stars(v){
+  let h="";
+  for(let i=1;i<=5;i++) h+=`<span class="star ${i<=v?"filled":""}">★</span>`;
+  return h;
+}
+
+function avatar(name,photo){
+  if(photo) return `<div class="avatarWrap"><img src="${photo}"></div>`;
+  return `<div class="avatarWrap"><div class="letter">${name?.charAt(0)||"؟"}</div></div>`;
+}
+
+function render(){
+  const q=search.value.trim();
+  const view=rows.filter(r=>!q||r.name.includes(q));
+  count.textContent=`عدد الطالبات: ${view.length}`;
+
+  grid.innerHTML=view.map((r,i)=>{
+    const avg=((clamp(r.participation)+clamp(r.cooperation)+clamp(r.focus)+clamp(r.commitment))/4).toFixed(1);
+    return `
+      <div class="card">
+        <div class="rankBadge">#${i+1}</div>
+        <div class="rightInfo">
+          ${avatar(r.name,r.photo)}
+          <div class="info">
+            <div class="name">${r.name}</div>
+            <div class="avg">⭐ ${avg} / 5</div>
+          </div>
+        </div>
+        <div class="leftRates">
+          <div class="row">🤝 ${stars(clamp(r.cooperation))}</div>
+          <div class="row">👩‍🎓 ${stars(clamp(r.participation))}</div>
+          <div class="row">👀 ${stars(clamp(r.focus))}</div>
+          <div class="row">🎯 ${stars(clamp(r.commitment))}</div>
+          <div class="row">🧠 ${stars(clamp(r.behavior))}</div>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+fetch(CSV_URL)
+.then(r=>r.text())
+.then(t=>{
+  const [h,...d]=t.trim().split("\n").map(r=>r.split(","));
+  rows=d.map(c=>Object.fromEntries(h.map((k,i)=>[k,c[i]||""])));
+  render();
+});
+
+search.addEventListener("input",render);
+</script>
+</body>
+</html>
